@@ -46,7 +46,7 @@
     .input-group { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
     label { font-size: 0.85rem; font-weight: 600; }
     input[type="number"], input[type="text"] {
-      padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 16px; /* 16px sprečava zoom na iPhoneu */
+      padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 16px; /* sprečava zoom na mobilnim */
       width: 100%; max-width: 180px;
     }
 
@@ -189,7 +189,7 @@
 </div>
 
 <script>
-  // Konfiguracija lista i mandata
+  // Konfiguracija lista i broja mandata
   const KONFIG = {
     usk: {
       mandati: 30,
@@ -204,9 +204,9 @@
       mandati: 9,
       cenzus: 0.03,
       subjekti: [
-        "SDA", "NES", "SDP", "DF", "NiP", "SBiH", "LS", "Naša stranka",
-        "SBB", "BH Zeleni", "HDZ", "Hrv. petorka", "SNSD",
-        "Za pravdu i red", "Republikanci"
+        "SDA", "NES", "SDP", "DF", "NiP", "PoMAK", "SBiH", "LS",
+        "Naša stranka", "SBB", "BH Zeleni", "Snaga naroda", "HDZ 1990",
+        "SNSD", "Republikanci"
       ]
     }
   };
@@ -307,7 +307,7 @@
       return;
     }
 
-    // Sainte-Laguë količnici: 1, 3, 5, 7, 9...
+    // Sainte-Laguë matrica (dijeljenje neparnim brojevima 1, 3, 5, 7...)
     const kolicnici = [];
     kvalifikovani.forEach(sub => {
       for (let m = 1; m <= mandatiUkupno; m++) {
@@ -351,7 +351,7 @@
       `Raspoređeno: ${mandatiUkupno}/${mandatiUkupno} mandata | Prag (3%): ${Math.ceil(prag).toLocaleString("de-DE")} glasova | Granični (${mandatiUkupno}.) količnik: ${granicniKolicnik.toFixed(2)}`;
   }
 
-  // Početno učitavanje
+  // Pokretanje pri učitavanju stranice
   popuniKontejner('usk');
   popuniKontejner('fbih');
 </script>
